@@ -1,4 +1,4 @@
-package com.boot.sharding;
+package com.boot.netty;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
