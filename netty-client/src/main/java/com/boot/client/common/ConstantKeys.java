@@ -13,16 +13,6 @@ public class ConstantKeys {
 	public static final String UUID = "uuid";
 
 	/**
-	 * 客户端ping事件
-	 **/
-	public static final String CLIENT_EVENT_PING = "ping";
-
-	/**
-	 * 客户端pong事件
-	 **/
-	public static final String CLIENT_EVENT_PONG = "ping";
-
-	/**
 	 * 客户端注册事件
 	 **/
 	public static final String CLIENT_EVENT_REGISTRY = "registry";

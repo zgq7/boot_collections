@@ -24,11 +24,12 @@ public class SingleTonSocketClient {
 	/**
 	 * socket server 地址
 	 **/
-	private static final String SERVER_IP = "http://127.0.0.1:9066";
-	//private static final String SERVER_IP = "http://49.235.64.160:80";
+	//private static final String SERVER_IP = "http://127.0.0.1:9066";
+	private static final String SERVER_IP = "http://49.235.64.160:9191";
 	private static SingleTonSocketClient singleTonSocketClient;
 	/**
 	 * 当前客户端的唯一标识 dongxinjieshishadiao
+	 * absxdsadsa123adas
 	 **/
 	private final String UUID = "absxdsadsa123adas";
 	/**
@@ -51,16 +52,13 @@ public class SingleTonSocketClient {
 						logger.info("客户端 uuid = {} 正在注册..", UUID);
 						//呼叫服务端注册事件，并发送数据包
 						client.emit(ConstantKeys.CLIENT_EVENT_REGISTRY, request.toJSONString());
-						MsgModel msgModel = new MsgModel();
-						msgModel.setUuid("2");
-						msgModel.setMsg("test");
-						msgModel.setMsgId("2");
-						client.emit(ConstantKeys.CLIENT_EVENT_MESSAGE_SEND, JSON.toJSONString(msgModel));
 					})
 					.on(Socket.EVENT_DISCONNECT, args -> logger.info("连接断开..."))
 					.on(Socket.EVENT_RECONNECT, args -> logger.info("重连成功"))
-					//每 25秒会ping 一次
-					.on(Socket.EVENT_PING, args -> logger.info("ping成功"))
+					//每 5秒会ping 一次
+					.on(Socket.EVENT_PONG, args -> {
+						logger.info("ping success ->{}", JSON.toJSONString(args));
+					})
 					//注册结果监听事件，
 					.on(ConstantKeys.CLIENT_EVENT_REGISTRY_RESULT, args -> {
 						//默认返回:false
@@ -80,9 +78,10 @@ public class SingleTonSocketClient {
 					})
 					//消息发送结果
 					.on(ConstantKeys.CLIENT_EVENT_MESSAGE_SEND_RESULT, args -> {
-						boolean flag = Boolean.parseBoolean(Objects.toString(args[0]));
-						String msgId = Objects.toString(args[1]);
-						if (flag) {
+						JSONObject call = JSON.parseObject(Objects.toString(args[0]));
+						String flag = call.getString("flag");
+						String msgId = call.getString("msgId");
+						if (Boolean.parseBoolean(flag)) {
 							logger.info("消息 msgID = {} 发送成功", msgId);
 						} else {
 							logger.info("消息 msgID = {} 发送失败", msgId);
