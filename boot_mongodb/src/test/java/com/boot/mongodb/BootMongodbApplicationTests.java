@@ -59,7 +59,6 @@ public class BootMongodbApplicationTests {
 		UserModel userModel = new UserModel(2, "lzq", 24, "Repository");
 		Example example = Example.of(userModel);
 		System.out.println(userRepository.findOne(example));
-		System.out.println(userRepository.findAll(example));
 	}
 
 

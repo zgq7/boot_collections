@@ -40,4 +40,5 @@ public class JdbcPool {
         this.statement.cancel();
         this.resultSet.close();
     }
+
 }
