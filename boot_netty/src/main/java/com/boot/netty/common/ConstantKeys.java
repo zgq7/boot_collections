@@ -13,14 +13,9 @@ public class ConstantKeys {
 	public static final String UUID = "uuid";
 
 	/**
-	 * 客户端ping事件
-	 **/
-	public static final String CLIENT_EVENT_PING = "ping";
-
-	/**
 	 * 客户端pong事件
 	 **/
-	public static final String CLIENT_EVENT_PONG = "ping";
+	public static final String CLIENT_EVENT_PONG = "pong";
 
 	/**
 	 * 客户端注册事件
@@ -28,14 +23,24 @@ public class ConstantKeys {
 	public static final String CLIENT_EVENT_REGISTRY = "registry";
 
 	/**
+	 * 客户端注册事件
+	 **/
+	public static final String CLIENT_EVENT_REGISTRY_GROUP = "registryGroup";
+
+	/**
 	 * 客戶端回应事件
 	 **/
 	public static final String CLIENT_EVENT_REGISTRY_RESULT = "registryResult";
 
 	/**
-	 * 客户端消息事件
+	 * 客户端消息事件 单发
 	 **/
 	public static final String CLIENT_EVENT_MESSAGE_SEND = "messageSend";
+
+	/**
+	 * 客户端消息事件 群发
+	 **/
+	public static final String CLIENT_EVENT_MESSAGE_SEND_GROUP = "messageSendGroup";
 
 	/**
 	 * 客户端消息事件

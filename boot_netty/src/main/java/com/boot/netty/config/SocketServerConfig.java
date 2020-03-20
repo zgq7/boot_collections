@@ -1,6 +1,8 @@
 package com.boot.netty.config;
 
 import com.boot.netty.helper.SocketServerHelper;
+import com.boot.netty.model.ClientAssignment;
+import com.boot.netty.model.GroupClient;
 import com.boot.netty.model.SingleClient;
 import com.boot.netty.properties.SocketIoProperties;
 import com.corundumstudio.socketio.SocketConfig;
@@ -33,7 +35,7 @@ public class SocketServerConfig {
 	public SocketIOServer server() {
 		com.corundumstudio.socketio.Configuration configuration = new com.corundumstudio.socketio.Configuration();
 		//configuration.setExceptionListener();
-		configuration.setPingInterval(5000);
+		configuration.setPingInterval(1000 * 600);
 		configuration.setPingTimeout(15000);
 		;// 文档建议:0 = current_processors_amount * 2
 		configuration.setBossThreads(4);
@@ -65,6 +67,21 @@ public class SocketServerConfig {
 		return new SocketServerHelper();
 	}
 
+	@Bean
+	public ClientAssignment clientAssignment(){
+		return new ClientAssignment();
+	}
+
+	@Bean
+	public GroupClient groupClient(){
+		return new GroupClient();
+	}
+
+	/**
+	 * @author Leethea
+	 * @apiNote 不知道幹嘛的
+	 * @date 2020/3/19 15:40
+	 **/
 	@Bean
 	public SpringAnnotationScanner springAnnotationScanner() {
 		return new SpringAnnotationScanner(server());

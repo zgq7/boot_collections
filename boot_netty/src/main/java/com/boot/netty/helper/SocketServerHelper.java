@@ -1,13 +1,15 @@
 package com.boot.netty.helper;
 
-import com.alibaba.fastjson.JSON;
 import com.boot.netty.common.ConstantKeys;
-import com.boot.netty.common.MsgModel;
 import com.boot.netty.config.SocketServerConfig;
+import com.boot.netty.model.ClientAssignment;
+import com.boot.netty.model.GroupClient;
 import com.boot.netty.model.SingleClient;
 import com.corundumstudio.socketio.SocketIOServer;
+import com.corundumstudio.socketio.listener.DataListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.InitializingBean;
 
 import javax.annotation.Resource;
 
@@ -16,7 +18,7 @@ import javax.annotation.Resource;
  * @version 1.0
  * @date 2020/3/13 18:32
  **/
-public class SocketServerHelper {
+public class SocketServerHelper implements InitializingBean {
 
 	private static final Logger logger = LoggerFactory.getLogger(SocketServerHelper.class);
 
@@ -24,6 +26,15 @@ public class SocketServerHelper {
 	private SocketIOServer server;
 	@Resource
 	private SingleClient singleClient;
+	@Resource
+	private GroupClient groupClient;
+	@Resource
+	private ClientAssignment clientAssignment;
+
+	private DataListener<String> registryListner;
+	private DataListener<String> singChatListener;
+	private DataListener<String> groupRegistListener;
+	private DataListener<String> groupChatListener;
 
 	/**
 	 * @author Leethea
@@ -32,36 +43,31 @@ public class SocketServerHelper {
 	 **/
 	public void initEvent() {
 		server.addConnectListener(client -> {
-			logger.info("远程客户端 ip = {} 已连接！", client.getRemoteAddress());
+			//logger.info("远程客户端 id = {} 已连接！", client.getSessionId().toString());
 		});
 		server.addDisconnectListener(client -> {
-			logger.info("远程客户端 ip = {} 已断开！", client.getRemoteAddress());
+			singleClient.remove(client);
+			groupClient.remove(client);
 		});
-		server.addPingListener(client -> logger.info("clientid = {} 正在ping", client.getSessionId()));
-		//注冊事件
-		server.addEventListener(ConstantKeys.CLIENT_EVENT_REGISTRY, String.class, (client, data, ackSender) -> {
-			String uuid = JSON.parseObject(data).getString(ConstantKeys.UUID);
-			logger.info("客户端 uuid = {} 请求注册", uuid);
-			if (uuid != null) {
-				if (!singleClient.contain(uuid)) {
-					singleClient.add(uuid, client);
-				}
-				//对客户端的呼叫事件进行回应
-				client.sendEvent(ConstantKeys.CLIENT_EVENT_REGISTRY_RESULT, Boolean.toString(true));
-			} else {
-				client.sendEvent(ConstantKeys.CLIENT_EVENT_REGISTRY_RESULT, Boolean.toString(false));
-			}
+		server.addPingListener(client -> {
+			//logger.info("正在ping 客戶端 clientid = {}", client.getSessionId().toString());
 		});
-		//消息事件
-		server.addEventListener(ConstantKeys.CLIENT_EVENT_MESSAGE_SEND, String.class, (client, data, ackSender) -> {
-			String uuid = JSON.parseObject(data, MsgModel.class).getUuid();
-			String msgId = JSON.parseObject(data, MsgModel.class).getMsgId();
-			logger.info("客户端 uuid = {} 有新消息", uuid);
-			if (singleClient.contain(uuid)) {
-				singleClient.getClient(uuid).sendEvent(ConstantKeys.CLIENT_EVENT_MESSAGE_RECIEVE, data);
-				client.sendEvent(ConstantKeys.CLIENT_EVENT_MESSAGE_SEND_RESULT, true, msgId);
-			}
-		});
+		//注冊事件、上线、支持单聊
+		server.addEventListener(ConstantKeys.CLIENT_EVENT_REGISTRY, String.class, registryListner);
+		//消息事件 单发
+		server.addEventListener(ConstantKeys.CLIENT_EVENT_MESSAGE_SEND, String.class, singChatListener);
+		//注冊事件、上线、支持群聊
+		server.addEventListener(ConstantKeys.CLIENT_EVENT_REGISTRY_GROUP, String.class, groupRegistListener);
+		//消息事件 群发
+		server.addEventListener(ConstantKeys.CLIENT_EVENT_MESSAGE_SEND_GROUP, String.class, groupChatListener);
+	}
+
+	@Override
+	public void afterPropertiesSet() {
+		registryListner = clientAssignment::registryCall;
+		singChatListener = clientAssignment::singChatCall;
+		groupChatListener = clientAssignment::groupChatCall;
+		groupRegistListener = clientAssignment::registryGroupCall;
 	}
 
 }

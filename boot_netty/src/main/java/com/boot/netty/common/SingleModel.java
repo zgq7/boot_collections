@@ -5,8 +5,9 @@ package com.boot.netty.common;
  * @version 1.0
  * @date 2020/3/16 15:45
  **/
-public class MsgModel {
+public class SingleModel {
 
+	private String fromUuid;
 	/**
 	 * 客户端ID
 	 **/
@@ -44,5 +45,13 @@ public class MsgModel {
 
 	public void setMsg(String msg) {
 		this.msg = msg;
+	}
+
+	public String getFromUuid() {
+		return fromUuid;
+	}
+
+	public void setFromUuid(String fromUuid) {
+		this.fromUuid = fromUuid;
 	}
 }

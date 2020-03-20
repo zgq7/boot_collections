@@ -36,7 +36,12 @@ public class SocketRunner implements InitializingBean, DisposableBean {
 	@Override
 	public void afterPropertiesSet() throws Exception {
 		socketServerHelper.initEvent();
-		server.start();
+		try {
+			server.start();
+		} catch (Exception e) {
+			logger.error("socket server 启动失败！");
+			e.printStackTrace();
+		}
 		logger.info("socket io 服务器启动！ip={}", server.getConfiguration().getHostname());
 	}
 }
