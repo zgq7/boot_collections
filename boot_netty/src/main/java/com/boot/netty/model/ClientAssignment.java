@@ -163,10 +163,14 @@ public class ClientAssignment {
 		boolean canSend = groupId.equals(GroupClient.GROUPID);
 		if (canSend) {
 			logger.info("正在发送...");
-			groupClient.getAllClient().forEach(
-					socket -> socket.sendEvent(ConstantKeys.CLIENT_EVENT_MESSAGE_RECIEVE,
-							JSON.toJSONString(groupModel))
-			);
+			groupClient.getAllClient()
+					.stream()
+					//过滤掉自己
+					.filter(socket -> !socket.getSessionId().toString().equals(client.getSessionId().toString()))
+					.forEach(
+							socket -> socket.sendEvent(ConstantKeys.CLIENT_EVENT_MESSAGE_RECIEVE,
+									JSON.toJSONString(groupModel))
+					);
 			call.put("flag", true);
 			client.sendEvent(ConstantKeys.CLIENT_EVENT_MESSAGE_SEND_RESULT, call);
 		} else {
