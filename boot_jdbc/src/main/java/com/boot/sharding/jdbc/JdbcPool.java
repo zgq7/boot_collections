@@ -37,7 +37,7 @@ public class JdbcPool {
 
     public void closeAll() throws SQLException {
         this.connection.close();
-        this.statement.cancel();
+        this.statement.close();
         this.resultSet.close();
     }
 
