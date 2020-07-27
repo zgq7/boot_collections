@@ -2,10 +2,12 @@ package com.boot.netty.model;
 
 import com.alibaba.fastjson.JSON;
 import com.boot.netty.common.ConstantKeys;
-import com.boot.netty.common.GroupModel;
-import com.boot.netty.common.SingleModel;
+import com.boot.netty.helper.CacheHelper;
+import com.boot.netty.helper.TalkingHelper;
 import com.corundumstudio.socketio.AckRequest;
 import com.corundumstudio.socketio.SocketIOClient;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.text.StringEscapeUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,6 +28,9 @@ public class ClientAssignment {
 	private SingleClient singleClient;
 	@Resource
 	private GroupClient groupClient;
+	@Resource
+	private TalkingHelper talkingHelper;
+
 
 	/**
 	 * @author Leethea
@@ -34,7 +39,7 @@ public class ClientAssignment {
 	 **/
 	public void registryCall(SocketIOClient client, String data, AckRequest ackSender) {
 		String uuid = JSON.parseObject(data).getString(ConstantKeys.UUID);
-		logger.info("客户端 uuid = {} 请求注册,id = {}", uuid, client.getSessionId().toString());
+		logger.info("客户端 uuid = {} 请求注册,id = {} 地址 = {}", uuid, client.getSessionId().toString(), client.getRemoteAddress());
 		//当uuid不存在,client也不存在是进行新增
 		if (uuid == null) {
 			client.sendEvent("logout", "请选择用户！");
@@ -70,7 +75,7 @@ public class ClientAssignment {
 
 	/**
 	 * @author Leethea
-	 * @apiNote
+	 * @apiNote 单聊回应
 	 * @date 2020/3/19 14:20
 	 **/
 	public void singChatCall(SocketIOClient client, String data, AckRequest ackSender) {
@@ -101,20 +106,24 @@ public class ClientAssignment {
 
 	/**
 	 * @author Leethea
-	 * @apiNote 注册回应
+	 * @apiNote 群组注册回应
 	 * @date 2020/3/19 14:13
 	 **/
 	public void registryGroupCall(SocketIOClient client, String data, AckRequest ackSender) {
 		String uuid = JSON.parseObject(data).getString(ConstantKeys.UUID);
-		logger.info("客户端 uuid = {} 请求注册,id = {}", uuid, client.getSessionId().toString());
+		String name = JSON.parseObject(data).getString("name");
+		logger.info("客户端 uuid = {} 请求注册,id = {} 地址 = {}", uuid, client.getSessionId().toString(), client.getRemoteAddress());
+		boolean flag = false;
 		//当uuid不存在,client也不存在是进行新增
-		if (uuid == null) {
+		if (StringUtils.isBlank(uuid)) {
 			client.sendEvent("logout", "请选择用户！");
 		}
 		if (!groupClient.contain(client) && !groupClient.contain(uuid)) {
 			groupClient.add(uuid, client);
 			//对客户端的呼叫事件进行回应
 			client.sendEvent(ConstantKeys.CLIENT_EVENT_REGISTRY_RESULT, Boolean.toString(true));
+			CacheHelper.getInstance().putUserName(client.getSessionId().toString(), uuid);
+			flag = true;
 		}
 		//uuid 存在,socket不存在，不能抢占他人账号
 		else if (!groupClient.contain(client) && groupClient.contain(uuid)) {
@@ -125,6 +134,7 @@ public class ClientAssignment {
 		else if (groupClient.contain(client) && !groupClient.contain(uuid)) {
 			client.sendEvent("logout", "成功切换账号！");
 			groupClient.update(uuid, client);
+			flag = true;
 		}
 		// uuid存在,client也存在
 		else if (groupClient.contain(uuid) && groupClient.contain(client)) {
@@ -137,11 +147,14 @@ public class ClientAssignment {
 		} else {
 			client.sendEvent(ConstantKeys.CLIENT_EVENT_REGISTRY_RESULT, Boolean.toString(false));
 		}
+		if (flag) {
+			talkingHelper.tellOthers(client, ConstantKeys.CLIENT_EVENT_WHO_ONLINE, data);
+		}
 	}
 
 	/**
 	 * @author Leethea
-	 * @apiNote
+	 * @apiNote 群组消息回应
 	 * @date 2020/3/19 14:20
 	 **/
 	public void groupChatCall(SocketIOClient client, String data, AckRequest ackSender) {
@@ -149,6 +162,9 @@ public class ClientAssignment {
 		String groupId = groupModel.getGroupId();
 		String msgId = groupModel.getMsgId();
 		String fromUuid = groupClient.getUuid(client);
+		String msg = groupModel.getMsg();
+		//防 xss 攻击 <script>alert('一日三餐没烦恼')</script>
+		groupModel.setMsg(StringEscapeUtils.escapeHtml4(msg));
 		if (fromUuid == null) {
 			client.sendEvent("logout", "尚未登录！");
 			return;
@@ -163,14 +179,10 @@ public class ClientAssignment {
 		boolean canSend = groupId.equals(GroupClient.GROUPID);
 		if (canSend) {
 			logger.info("正在发送...");
-			groupClient.getAllClient()
-					.stream()
-					//过滤掉自己
-					.filter(socket -> !socket.getSessionId().toString().equals(client.getSessionId().toString()))
-					.forEach(
-							socket -> socket.sendEvent(ConstantKeys.CLIENT_EVENT_MESSAGE_RECIEVE,
-									JSON.toJSONString(groupModel))
-					);
+/*			talkingHelper.tellOthers(client, ConstantKeys.CLIENT_EVENT_MESSAGE_RECIEVE,
+					JSON.toJSONStringWithDateFormat(groupModel, "yyyy-MM-dd HH:mm", SerializerFeature.WriteDateUseDateFormat));*/
+			talkingHelper.tellOthers(client, ConstantKeys.CLIENT_EVENT_MESSAGE_RECIEVE, JSON.toJSONString(groupModel));
+			CacheHelper.getInstance().put(msgId, JSON.toJSONString(groupModel));
 			call.put("flag", true);
 			client.sendEvent(ConstantKeys.CLIENT_EVENT_MESSAGE_SEND_RESULT, call);
 		} else {

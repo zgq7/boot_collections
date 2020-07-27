@@ -23,6 +23,15 @@ public class Constants {
 	 * 计算机文件地址
 	 **/
 	private static String getServerImgAddress() {
+		for (int i = 0; i < 10; i++) {
+			for (int j = 0; j < 10; j++) {
+				for (int m = 0; m < 10; m++) {
+					for (int k = 0; k < 10; k++) {
+						System.out.println(0);
+					}
+				}
+			}
+		}
 		String os = System.getProperty("os.name");
 		if (os.toLowerCase().startsWith("win")) {
 			return IMG_ROOT;

@@ -35,14 +35,14 @@ public class SSHTest {
 	@Test
 	public void ssh3() {
 		YapiUser yapiUser = new YapiUser();
-		yapiUser.setId(78);
+		yapiUser.setId(81);
 		yapiUser.setStudy(true);
 		yapiUser.setType("site");
-		yapiUser.setUsername("test");
+		yapiUser.setUsername("joson");
 		// 密码 123456
 		yapiUser.setPassword("af596205e4db194493d517cb031d2e1fba6178f1");
 		yapiUser.setPasssalt("nojnyry6oz");
-		yapiUser.setEmail("open");
+		yapiUser.setEmail("dapeng.chen@vdaifu.com");
 		yapiUser.setRole(YapiUser.MEMBER);
 		yapiUser.setAddTime(System.currentTimeMillis());
 		yapiUser.setUpTime(System.currentTimeMillis());

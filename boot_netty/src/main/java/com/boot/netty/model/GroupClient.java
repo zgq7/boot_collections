@@ -24,12 +24,10 @@ public class GroupClient implements InitializingBean {
 
 	public static final String GROUPID = "123456";
 	private static final Logger logger = LoggerFactory.getLogger(GroupClient.class);
-	@Resource(name = SocketServerConfig.SERVER_NAME)
-	private SocketIOServer server;
 
 	/**
-	 * key is
-	 * value is client
+	 * key is 房间号
+	 * value is uuid=client
 	 **/
 	private ConcurrentHashMap<String, Map<String, SocketIOClient>> clientMap = new ConcurrentHashMap<>();
 
@@ -176,6 +174,7 @@ public class GroupClient implements InitializingBean {
 
 	@Override
 	public void afterPropertiesSet() throws Exception {
-		clientMap.put(GROUPID, new ConcurrentHashMap<>(3));
+		clientMap.put(GROUPID, new ConcurrentHashMap<>(100));
 	}
+
 }

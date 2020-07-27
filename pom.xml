@@ -2,17 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.7.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
-    <groupId>com.boot</groupId>
-    <artifactId>boot_collections</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>boot_collections</name>
-    <description>other project pom parent</description>
+    <packaging>pom</packaging>
 
     <!-- 按整合的时间的先后顺序  -->
     <modules>
@@ -20,9 +10,25 @@
         <module>netty-client</module>
         <module>boot_netty</module>
         <module>boot_mongodb</module>
+        <module>boot_nacos</module>
         <module>boot_jpa</module>
         <module>boot_sharding_jdbc</module>
+        <module>boot_jdbc</module>
+        <module>boot_auth2</module>
     </modules>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.7.RELEASE</version>
+    </parent>
+
+    <groupId>com.boot</groupId>
+    <artifactId>boot_collections</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>boot_collections</name>
+
+    <description>other project pom parent</description>
 
     <properties>
         <java.version>1.8</java.version>
@@ -49,6 +55,13 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.66</version>
         </dependency>
 
     </dependencies>

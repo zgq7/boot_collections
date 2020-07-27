@@ -13,11 +13,6 @@ public class ConstantKeys {
 	public static final String UUID = "uuid";
 
 	/**
-	 * 客户端pong事件
-	 **/
-	public static final String CLIENT_EVENT_PONG = "pong";
-
-	/**
 	 * 客户端注册事件
 	 **/
 	public static final String CLIENT_EVENT_REGISTRY = "registry";
@@ -52,5 +47,19 @@ public class ConstantKeys {
 	 **/
 	public static final String CLIENT_EVENT_MESSAGE_RECIEVE = "messageRecieve";
 
+	/**
+	 * 通知谁上线
+	 **/
+	public static final String CLIENT_EVENT_WHO_ONLINE = "whoOnline";
+
+	/**
+	 * 通知谁下线
+	 **/
+	public static final String CLIENT_EVENT_WHO_OUT_ONLINE = "whoOutOnline";
+
+	/**
+	 * 是否需要再登录
+	 **/
+	public static final String CLIENT_EVENT_NEED_LOGIN = "needLogin";
 
 }

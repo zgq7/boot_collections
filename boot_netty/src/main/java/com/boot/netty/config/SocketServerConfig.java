@@ -1,6 +1,7 @@
 package com.boot.netty.config;
 
 import com.boot.netty.helper.SocketServerHelper;
+import com.boot.netty.helper.TalkingHelper;
 import com.boot.netty.model.ClientAssignment;
 import com.boot.netty.model.GroupClient;
 import com.boot.netty.model.SingleClient;
@@ -37,7 +38,7 @@ public class SocketServerConfig {
 		//configuration.setExceptionListener();
 		configuration.setPingInterval(1000 * 600);
 		configuration.setPingTimeout(15000);
-		;// 文档建议:0 = current_processors_amount * 2
+		// 文档建议:0 = current_processors_amount * 2
 		configuration.setBossThreads(4);
 		configuration.setWorkerThreads(8);
 		configuration.setMaxFramePayloadLength(2 * 1024 * 1024);
@@ -49,6 +50,7 @@ public class SocketServerConfig {
 		socketConfig.setTcpKeepAlive(true);
 		socketConfig.setTcpNoDelay(true);
 		socketConfig.setSoLinger(0);
+
 		configuration.setSocketConfig(socketConfig);
 
 		configuration.setHostname(properties.getHost());
@@ -68,13 +70,18 @@ public class SocketServerConfig {
 	}
 
 	@Bean
-	public ClientAssignment clientAssignment(){
+	public ClientAssignment clientAssignment() {
 		return new ClientAssignment();
 	}
 
 	@Bean
-	public GroupClient groupClient(){
+	public GroupClient groupClient() {
 		return new GroupClient();
+	}
+
+	@Bean
+	public TalkingHelper talkingHelper() {
+		return new TalkingHelper();
 	}
 
 	/**
@@ -86,5 +93,6 @@ public class SocketServerConfig {
 	public SpringAnnotationScanner springAnnotationScanner() {
 		return new SpringAnnotationScanner(server());
 	}
+
 
 }
