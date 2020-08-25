@@ -15,6 +15,7 @@
         <module>boot_sharding_jdbc</module>
         <module>boot_jdbc</module>
         <module>boot_auth2</module>
+        <module>boot_rabbitmq</module>
     </modules>
 
     <parent>

@@ -8,7 +8,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>auth2</artifactId>
+    <artifactId>boot_auth2</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>boot_auth2</name>
     <description>auth2 project for Spring Boot</description>
