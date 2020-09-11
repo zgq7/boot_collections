@@ -1,0 +1,58 @@
+spring:
+  cloud:
+    stream:
+      #假如有多个rabbitmq 需要使用，可以设置多个binder
+      binders:
+        # binder名称：test
+        test:
+          # binder类型：rabbit/kafka
+          type: rabbit
+          #　连接属性
+          environment:
+            spring:
+              rabbitmq:
+                host: 192.168.1.218
+                port: 5672
+                username: admin
+                password: 123456
+        #test2:
+        #  type: rabbit
+        #  environment:
+        #    spring:
+        #      rabbitmq:
+        #        host: 192.168.2.51
+        #        port: 5672
+        #        username: test
+        #        password: test
+      default-binder: test
+      ##
+      bindings:
+        # 和 MqDemoStream 的 input 一致，代表消息流入
+        # 每个 binding 都有一个自己的 channel,启动时不创建使用时也会创建
+        mq-demo-input:
+          # destination.group 代表队列名称
+          # destination 代表交换机名称
+          destination: mq-demo-topic
+          group: mq-demo
+          content-type: application/json
+          binder: test
+          consumer:
+            # 并发线程
+            concurrency: 1
+            # 最大失败重试次数
+            max-attempts: 1
+        # 和 MqDemoStream 的 output 一致，代表消息输出
+        mq-demo-output:
+          destination: mq-demo-topic
+          group: mq-demo
+          content-type: application/json
+          binder: test
+          producer:
+            concurrency: 1
+            max-attempts: 1
+      ## 开启手动消息确认
+      #rabbit:
+      #  bindings:
+      #    mq-demo-input:
+      #      consumer:
+      #        acknowledge-mode: manual

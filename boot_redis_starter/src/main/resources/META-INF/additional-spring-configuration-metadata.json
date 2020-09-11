@@ -1,0 +1,9 @@
+{
+  "properties": [
+    {
+      "name": "spring.redis.utils.enable",
+      "type": "java.lang.String",
+      "description": "是否开启SPI REDIS 插槽."
+    }
+  ]
+}

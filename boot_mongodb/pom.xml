@@ -6,25 +6,19 @@
         <groupId>com.boot</groupId>
         <artifactId>boot_collections</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
     <artifactId>boot_mongodb</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>boot_mongodb</name>
-    <description>Demo project for Spring Boot</description>
 
-    <properties>
-        <java.version>1.8</java.version>
-    </properties>
+    <name>boot_mongodb</name>
 
     <dependencies>
-
         <!-- mongodb -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-mongodb</artifactId>
         </dependency>
-
         <!-- 开启SSH -->
         <!-- https://mvnrepository.com/artifact/com.jcraft/jsch -->
         <dependency>
@@ -32,16 +26,7 @@
             <artifactId>jsch</artifactId>
             <version>0.1.55</version>
         </dependency>
-
     </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>

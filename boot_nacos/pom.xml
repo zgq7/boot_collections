@@ -6,16 +6,12 @@
 		<groupId>com.boot</groupId>
 		<artifactId>boot_collections</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+
 	<artifactId>boot_nacos</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>boot_nacos</name>
-	<description>Demo project for Spring Boot</description>
 
-	<properties>
-		<java.version>1.8</java.version>
-	</properties>
+	<name>boot_nacos</name>
 
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/com.alibaba.boot/nacos-config-spring-boot-starter -->
@@ -24,16 +20,6 @@
 			<artifactId>nacos-config-spring-boot-starter</artifactId>
 			<version>0.2.4</version>
 		</dependency>
-
 	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
 
 </project>
