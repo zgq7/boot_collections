@@ -27,5 +27,9 @@ spring:
           producer:
             concurrency: 1
             max-attempts: 1
-
-
+      ## 开启手动消息确认
+      rabbit:
+        bindings:
+          mq-demo-input:
+            consumer:
+              acknowledge-mode: manual

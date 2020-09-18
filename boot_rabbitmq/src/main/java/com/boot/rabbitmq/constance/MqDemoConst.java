@@ -14,6 +14,10 @@ public class MqDemoConst {
 
     public static final String MQ_DEMO_OUTPUT = "mq-demo-output";
 
+    public static final String MQ_PARTITION_INPUT = "mq-partition-input";
+
+    public static final String MQ_PARTITION_OUTPUT = "mq-partition-output";
+
     public static final String MQ_DEMO_REDIS_KEY = "mq:demo:redis:";
 
     public static final ThreadPoolExecutor EXECUTOR =

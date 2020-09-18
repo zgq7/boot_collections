@@ -13,28 +13,28 @@ public class MqModel implements Serializable {
 
     private static final String UND = "_u_";
 
-    private long id;
+    private long mid;
 
     private long version;
 
     private long sno;
 
     public MqModel(long id, long version, long sno) {
-        this.id = id;
+        this.mid = id;
         this.version = version;
         this.sno = sno;
     }
 
     public String parseRedisKey() {
-        return MqDemoConst.MQ_DEMO_REDIS_KEY + this.id;
+        return MqDemoConst.MQ_DEMO_REDIS_KEY + this.mid;
     }
 
     public String parseRedisMember() {
-        return this.id + UND + this.version;
+        return this.mid + UND + this.version;
     }
 
     public String parseRedisMember(long version) {
-        return this.id + UND + version;
+        return this.mid + UND + version;
     }
 
     public static Long parseVersion(String redisMember) {
@@ -49,12 +49,12 @@ public class MqModel implements Serializable {
         this.sno = sno;
     }
 
-    public long getId() {
-        return id;
+    public long getMid() {
+        return mid;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setMid(long mid) {
+        this.mid = mid;
     }
 
     public long getVersion() {

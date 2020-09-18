@@ -25,5 +25,17 @@ public interface MqDemoStream {
     @Output(MqDemoConst.MQ_DEMO_OUTPUT)
     MessageChannel streamOutput();
 
+    /**
+     * 消息流入
+     **/
+    @Input(MqDemoConst.MQ_PARTITION_INPUT)
+    SubscribableChannel mqPartitionInput();
+
+    /**
+     * 消息流出
+     **/
+    @Output(MqDemoConst.MQ_PARTITION_OUTPUT)
+    MessageChannel mqPartitionOutput();
+
 
 }
