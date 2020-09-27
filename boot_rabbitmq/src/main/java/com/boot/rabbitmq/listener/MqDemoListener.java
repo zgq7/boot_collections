@@ -1,7 +1,7 @@
 package com.boot.rabbitmq.listener;
 
 import com.alibaba.fastjson.JSONObject;
-import com.boot.rabbitmq.constance.MqDemoConst;
+import com.boot.rabbitmq.constance.MqConstants;
 import com.boot.rabbitmq.constance.MqModel;
 import com.boot.rabbitmq.producer.MqDemoProducer;
 import com.boot.rabbitmq.stream.MqDemoStream;
@@ -48,7 +48,7 @@ public class MqDemoListener {
      * 普通接收消息
      * 考虑同ID 不同version 的数据按顺序消费
      **/
-    @StreamListener(MqDemoConst.MQ_DEMO_INPUT)
+    @StreamListener(MqConstants.MQ_DEMO_INPUT)
     public void receiveMsgAutoCommit(@Payload String payload,
                                      @Header(AmqpHeaders.DELIVERY_TAG) long deliveryTag) {
         waiting(50);

@@ -26,7 +26,7 @@ public class MqModel implements Serializable {
     }
 
     public String parseRedisKey() {
-        return MqDemoConst.MQ_DEMO_REDIS_KEY + this.mid;
+        return MqConstants.MQ_DEMO_REDIS_KEY + this.mid;
     }
 
     public String parseRedisMember() {

@@ -3,8 +3,6 @@ server:
 
 ##spring setting
 spring:
-  main:
-    banner-mode: off
   profiles:
     active: dev
   application:
@@ -17,21 +15,21 @@ spring:
     port: 6379
     password: zgq123456
     timeout: 60000
-    ## ÊÇ·ñÆôÓÃredis ¹¤¾ßÀàÅäÖÃ
+    ## æ˜¯å¦å¯ç”¨redis å·¥å…·ç±»é…ç½®
     utils:
-      enable=true:
+      enable=true: true
 
 
   ## rabbitmq
   cloud:
     stream:
-      #¼ÙÈçÓĞ¶à¸örabbitmq ĞèÒªÊ¹ÓÃ£¬¿ÉÒÔÉèÖÃ¶à¸öbinder
+      #å‡å¦‚æœ‰å¤šä¸ªrabbitmq éœ€è¦ä½¿ç”¨ï¼Œå¯ä»¥è®¾ç½®å¤šä¸ªbinder
       binders:
-        # binderÃû³Æ£ºtest
+        # binderåç§°ï¼štest
         test:
-          # binderÀàĞÍ£ºrabbit/kafka
+          # binderç±»å‹ï¼šrabbit/kafka
           type: rabbit
-          #¡¡Á¬½ÓÊôĞÔ
+          #ã€€è¿æ¥å±æ€§
           environment:
             spring:
               rabbitmq:
@@ -56,7 +54,7 @@ logging:
       boot:
         rabbitmq: debug
         redis: debug
-    ##rabbitmq Æô¶¯ÈÕÖ¾
+    ##rabbitmq å¯åŠ¨æ—¥å¿—
     org:
       springframework:
         amqp:

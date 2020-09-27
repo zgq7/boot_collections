@@ -1,14 +1,15 @@
 package com.boot.rabbitmq.constance;
 
-import java.time.LocalTime;
-import java.util.concurrent.*;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author liaonanzhou
  * @date 2020/8/25 15:21
  * @description
  **/
-public class MqDemoConst {
+public class MqConstants {
 
     public static final String MQ_DEMO_INPUT = "mq-demo-input";
 

@@ -1,7 +1,7 @@
 package com.boot.rabbitmq.producer;
 
 import com.alibaba.fastjson.JSON;
-import com.boot.rabbitmq.constance.MqDemoConst;
+import com.boot.rabbitmq.constance.MqConstants;
 import com.boot.rabbitmq.constance.MqModel;
 import com.boot.rabbitmq.stream.MqDemoStream;
 import com.boot.redis.RedisUtil;
@@ -39,7 +39,7 @@ public class MqDemoProducer {
     }
 
     public void sendMsg() {
-        ThreadPoolExecutor executor = MqDemoConst.EXECUTOR;
+        ThreadPoolExecutor executor = MqConstants.EXECUTOR;
         for (; ati.get() < atm.get(); ati.incrementAndGet()) {
             final int ti = ati.get();
             final int rd = new Random().nextInt(5) * 2;

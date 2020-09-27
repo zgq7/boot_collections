@@ -1,7 +1,7 @@
 package com.boot.rabbitmq.listener;
 
 import com.alibaba.fastjson.JSONObject;
-import com.boot.rabbitmq.constance.MqDemoConst;
+import com.boot.rabbitmq.constance.MqConstants;
 import com.rabbitmq.client.Channel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,7 +9,6 @@ import org.springframework.amqp.support.AmqpHeaders;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.Payload;
-import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -28,7 +27,7 @@ public class MqDemoManualConfirmListener {
     /**
      * 设置手动提交消息确认
      **/
-    @StreamListener(MqDemoConst.MQ_DEMO_INPUT)
+    @StreamListener(MqConstants.MQ_DEMO_INPUT)
     public void receiveMsg(@Payload String payload,
                            @Header(AmqpHeaders.CHANNEL) Channel channel,
                            @Header(AmqpHeaders.DELIVERY_TAG) long deliveryTag) {
