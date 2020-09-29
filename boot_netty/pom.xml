@@ -38,13 +38,6 @@
             <version>28.2-jre</version>
         </dependency>
 
-        <!-- guava cache -->
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>20.0</version>
-        </dependency>
-
         <!-- 防xss 攻击 -->
         <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-text -->
         <dependency>
