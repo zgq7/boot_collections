@@ -22,7 +22,9 @@ spring boot 一对一整合当前流行框架
     
     B：使用Spring的 @Import 注解加载第三方包的 Bean配置
     
-# SokcetIo 的使用
+# Netty 的 学习
+  
+  1：基于Netty的 socket.io 的使用
 
 # SpringBoot 整合 ShardingJdbc
 
