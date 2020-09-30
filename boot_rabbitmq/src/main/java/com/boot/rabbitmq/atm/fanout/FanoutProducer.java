@@ -41,7 +41,7 @@ public class FanoutProducer {
         // 5:再由管道发布消息
         for (int i = 0; i < 1000; i++) {
             String msg = BuiltinExchangeType.FANOUT.getType() + ": " + i + " : " + UUID.randomUUID();
-            // 发布的消息时必须有消费者存在，否则消息无法路由，后面启动的消费者无法接受到消息（消息丢失）
+            // 发布的消息时必须有消费者（需提前创建队列）存在，否则消息无法路由，后面启动的消费者无法接受到消息（消息丢失）
             // 版本3.5.0，版本 3.6.0 之上可能此现象得到改善
             // stack_flow : https://stackoverflow.com/questions/38988225/is-it-possible-to-get-unrouted-messages-in-amqp
             // github issues : https://github.com/thecederick/rabbitmq-arguments-to-headers-exchange/issues/1
