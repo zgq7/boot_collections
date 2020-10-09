@@ -25,9 +25,10 @@ public class DlxProducer {
     private static final Logger logger = LoggerFactory.getLogger(DlxProducer.class);
 
     // 交换机名称
-    protected static final String EXCHANGE_NAME = "dlx_exchange";
+    protected static final String EXCHANGE_NAME_1 = "dlx_exchange_1";
+    protected static final String EXCHANGE_NAME_2 = "dlx_exchange_2";
     // 作用是告诉交换机消息要推往哪个队列
-    protected static final String ROUTING_KEY = "DLX.TEST";
+    protected static final String ROUTING_KEY = "DLX.RK";
 
     public static void main(String[] args) throws IOException, TimeoutException {
         // 1:创建连接工厂
@@ -48,7 +49,7 @@ public class DlxProducer {
         for (int i = 0; i < 100; i++) {
             String msg = BuiltinExchangeType.TOPIC.getType() + " : " + UUID.randomUUID();
             // 生产者只需要在发布消息的时候声明交换机和routingKey即可，不需要提前声明绑定队列和交换机
-            channel.basicPublish(EXCHANGE_NAME, ROUTING_KEY, true, properties, msg.getBytes());
+            channel.basicPublish(EXCHANGE_NAME_1, ROUTING_KEY, true, properties, msg.getBytes());
             logger.info("produce msg : {}", msg);
         }
 

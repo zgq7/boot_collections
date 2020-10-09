@@ -39,17 +39,17 @@ public class DlxConsumer {
         // 3:连接实例创建管道
         Channel channel = connection.createChannel();
         // 4:声明死信队列
-        headerMap.put(DLX_KEY, DlxProducer.EXCHANGE_NAME);
+        headerMap.put(DLX_KEY, DlxProducer.EXCHANGE_NAME_2);
 
         // 5:绑定正常队列,正常队列需指定任务的死信队列
-        channel.exchangeDeclare(DlxProducer.EXCHANGE_NAME, BuiltinExchangeType.TOPIC.getType());
+        channel.exchangeDeclare(DlxProducer.EXCHANGE_NAME_1, BuiltinExchangeType.TOPIC.getType());
         channel.queueDeclare(DLX_TEST_QUEUE, true, false, false, headerMap);
-        channel.queueBind(DLX_TEST_QUEUE, DlxProducer.EXCHANGE_NAME, DlxProducer.ROUTING_KEY);
+        channel.queueBind(DLX_TEST_QUEUE, DlxProducer.EXCHANGE_NAME_1, DlxProducer.ROUTING_KEY);
 
         // 6:绑定死信队列
-        channel.exchangeDeclare(DlxProducer.EXCHANGE_NAME, BuiltinExchangeType.TOPIC.getType());
+        channel.exchangeDeclare(DlxProducer.EXCHANGE_NAME_2, BuiltinExchangeType.TOPIC.getType());
         channel.queueDeclare(DLX_QUEUE, true, false, false, null);
-        channel.queueBind(DLX_QUEUE, DlxProducer.EXCHANGE_NAME, DlxProducer.ROUTING_KEY);
+        channel.queueBind(DLX_QUEUE, DlxProducer.EXCHANGE_NAME_2, DlxProducer.ROUTING_KEY  );
 
         // 7:创建消费者实例
         Consumer consumer = newConsumer(channel);
