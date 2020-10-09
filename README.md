@@ -10,6 +10,10 @@ spring boot 一对一整合当前流行框架
 
 博客地址：https://www.cnblogs.com/zgq7/p/13692616.html
 
+# RabbitMQ 死信队列
+
+博客地址：https://www.cnblogs.com/zgq7/p/13785760.html
+
 # SpringCloud stream 整合RabbitMQ
 
 # SpringBoot 整合 Kafka
