@@ -69,6 +69,12 @@
             <version>29.0-jre</version>
         </dependency>
 
+        <!-- lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
     </dependencies>
 
     <!--Spring boot在创建单应用项目的时候，有默认的<parent>依赖；我们在自定义父工程项目时，
