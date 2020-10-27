@@ -40,3 +40,4 @@ spring boot 一对一整合当前流行框架
 
 ## 11：SpringBoot 整合 ElasticSearch
 
+博客地址：https://www.cnblogs.com/zgq7/p/13885990.html
