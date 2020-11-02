@@ -1,7 +1,7 @@
 package com.boot.rabbitmq.listener;
 
-import com.boot.rabbitmq.constance.MqConstants;
-import com.boot.rabbitmq.stream.MqDemoStream;
+import com.boot.rabbitmq.constance.MQConstants;
+import com.boot.rabbitmq.stream.RabbitStream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cloud.stream.annotation.EnableBinding;
@@ -11,18 +11,22 @@ import org.springframework.stereotype.Component;
 
 /**
  * @author liaonanzhou
- * @date 2020/9/17 18:35
+ * @date 2020/8/25 11:06
  * @description
  **/
 @Component
-@EnableBinding(MqDemoStream.class)
-public class MqPartitionListener {
+@EnableBinding(RabbitStream.class)
+public class DevListener {
 
-    private static final Logger logger = LoggerFactory.getLogger(MqPartitionListener.class);
+    private static final Logger logger = LoggerFactory.getLogger(DevListener.class);
 
-    @StreamListener(MqConstants.MQ_PARTITION_INPUT)
+    /**
+     * 普通接收消息
+     * 考虑同ID 不同version 的数据按顺序消费
+     **/
+    //@StreamListener(MQConstants.DEV_EXCHANGE)
     public void receiveMsgAutoCommit(@Payload String payload) {
-        logger.info(payload);
+        logger.info("consumer:{}", payload);
     }
 
 }
