@@ -16,6 +16,8 @@ spring boot 一对一整合当前流行框架
 
 ## 4：SpringCloud stream 整合RabbitMQ
 
+博客地址：https://www.cnblogs.com/zgq7/p/13903644.html
+
 ## 5：SpringBoot 整合 Kafka
 
 ## 6：SpringBoot 整合 Redis (Lettuce)
