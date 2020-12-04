@@ -5,6 +5,7 @@ import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.data.convert.CustomConversions;
 import org.springframework.data.mongodb.MongoDbFactory;
 import org.springframework.data.mongodb.core.convert.DbRefResolver;
@@ -19,6 +20,7 @@ import org.springframework.data.mongodb.core.mapping.MongoMappingContext;
  * @date 2020/2/19 17:37
  **/
 @Configuration
+@EnableAspectJAutoProxy
 public class MongodbConfig {
 
 	@Bean
@@ -44,6 +46,11 @@ public class MongodbConfig {
 		mappingConverter.setTypeMapper(new DefaultMongoTypeMapper(null));
 
 		return mappingConverter;
+	}
+
+	@Bean
+	public MongoCommandAspect mongoCommandAspect(){
+		return new MongoCommandAspect();
 	}
 
 }

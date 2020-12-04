@@ -74,6 +74,15 @@
             <artifactId>lombok</artifactId>
         </dependency>
 
+        <!-- spring boot AOP release start -->
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-aop -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+        <!-- spring boot AOP release end -->
+
+
     </dependencies>
 
     <!--Spring boot在创建单应用项目的时候，有默认的<parent>依赖；我们在自定义父工程项目时，
