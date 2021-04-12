@@ -1,6 +1,6 @@
 package com.boot.rabbitmq.controller;
 
-import com.boot.rabbitmq.constance.MQModel;
+import com.boot.rabbitmq.constance.MqModel;
 import com.boot.rabbitmq.producer.CommitProducer;
 import com.boot.rabbitmq.producer.DevProducer;
 import com.boot.rabbitmq.producer.PartitionProducer;
@@ -26,17 +26,17 @@ public class MqDemoController {
     private CommitProducer commitProducer;
 
     @PostMapping(value = "/dev")
-    public void dev(@RequestBody MQModel model) {
+    public void dev(@RequestBody MqModel model) {
         devProducer.sendMsg(model);
     }
 
     @PostMapping(value = "/partition")
-    public void partition(@RequestBody MQModel model) {
+    public void partition(@RequestBody MqModel model) {
         mqPartitionProducer.sendMsg(model);
     }
 
     @PostMapping(value = "/condition")
-    public void condition(@RequestBody MQModel model) {
+    public void condition(@RequestBody MqModel model) {
         commitProducer.sendMsg(model);
     }
 

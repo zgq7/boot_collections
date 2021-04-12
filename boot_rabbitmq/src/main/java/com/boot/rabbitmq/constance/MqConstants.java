@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
  * @date 2020/8/25 15:21
  * @description
  **/
-public class MQConstants {
+public class MqConstants {
 
     public static final String DEV_EXCHANGE = "dev-exchange";
 

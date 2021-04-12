@@ -1,10 +1,8 @@
 package com.boot.rabbitmq;
 
-import com.boot.rabbitmq.constance.MQModel;
 import com.boot.rabbitmq.producer.CommitProducer;
 import com.boot.rabbitmq.producer.DevProducer;
 import com.boot.rabbitmq.producer.PartitionProducer;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;

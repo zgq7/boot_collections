@@ -1,7 +1,7 @@
 package com.boot.rabbitmq.listener;
 
 import com.alibaba.fastjson.JSONObject;
-import com.boot.rabbitmq.constance.MQConstants;
+import com.boot.rabbitmq.constance.MqConstants;
 import com.boot.rabbitmq.stream.RabbitStream;
 import com.rabbitmq.client.Channel;
 import org.slf4j.Logger;
@@ -29,7 +29,7 @@ public class CommitListener {
     /**
      * 设置手动提交消息确认
      **/
-    @StreamListener(MQConstants.COMMIT_EXCHANGE)
+    @StreamListener(MqConstants.COMMIT_EXCHANGE)
     public void receiveMsg(@Payload String payload,
                            @Header(AmqpHeaders.CHANNEL) Channel channel,
                            @Header(AmqpHeaders.DELIVERY_TAG) long deliveryTag) {
