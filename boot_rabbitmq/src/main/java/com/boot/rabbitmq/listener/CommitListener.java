@@ -1,7 +1,7 @@
 package com.boot.rabbitmq.listener;
 
 import com.alibaba.fastjson.JSONObject;
-import com.boot.rabbitmq.constance.MQConstants;
+import com.boot.rabbitmq.constance.MqConstants;
 import com.boot.rabbitmq.stream.RabbitStream;
 import com.rabbitmq.client.Channel;
 import org.slf4j.Logger;
@@ -13,7 +13,7 @@ import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
 
-import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author liaonanzhou
@@ -29,22 +29,30 @@ public class CommitListener {
     /**
      * 设置手动提交消息确认
      **/
-    @StreamListener(MQConstants.COMMIT_EXCHANGE)
+    @StreamListener(MqConstants.COMMIT_EXCHANGE)
     public void receiveMsg(@Payload String payload,
                            @Header(AmqpHeaders.CHANNEL) Channel channel,
-                           @Header(AmqpHeaders.DELIVERY_TAG) long deliveryTag) {
+                           @Header(AmqpHeaders.DELIVERY_TAG) long deliveryTag ) {
         try {
             JSONObject object = JSONObject.parseObject(payload);
-            logger.info("{},{}", payload, deliveryTag);
-            if (!object.get("demo").equals("demo5")) {
+            logger.info("commit listener -> payload : {},deliveryTag : {}", payload, deliveryTag);
+            if (object != null) {
                 // 消息OK，将从队列中移除该消息
+                TimeUnit.MILLISECONDS.sleep(100);
                 channel.basicAck(deliveryTag, false);
             } else {
                 // 消息ERROR，将重复消费该消息
                 channel.basicNack(deliveryTag, false, true);
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+    @StreamListener(MqConstants.COMMIT_EXCHANGE_PRODUCER_CONFIRM)
+    public void receiveConfirm(@Payload String payload,
+                               @Header(AmqpHeaders.TIMESTAMP) long timestamp) {
+        logger.info("confirm-> {},timestamp -> {}", payload, timestamp);
+    }
+
 }

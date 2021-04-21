@@ -1,14 +1,18 @@
 package com.boot.rabbitmq.producer;
 
 import com.alibaba.fastjson.JSON;
-import com.boot.rabbitmq.constance.MQModel;
+import com.boot.rabbitmq.constance.MqModel;
+import com.boot.rabbitmq.listener.CommitListener;
 import com.boot.rabbitmq.stream.RabbitStream;
 import com.boot.redis.RedisUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
 
 /**
  * @author liaonanzhou
@@ -23,15 +27,14 @@ public class CommitProducer {
 
     private final RabbitStream rabbitStream;
 
-    public CommitProducer(RedisUtil redisUtil, RabbitStream rabbitStream) {
+    public CommitProducer(RabbitStream rabbitStream) {
         this.rabbitStream = rabbitStream;
     }
 
-    public void sendMsg(MQModel model) {
-        logger.info("producer:{}", JSON.toJSONString(model));
-
+    public void sendMsg(MqModel model) {
         rabbitStream.commitProducer()
                 .send(MessageBuilder.withPayload(model).build());
+        logger.info("producer:{}", JSON.toJSONString(model));
     }
 
 }

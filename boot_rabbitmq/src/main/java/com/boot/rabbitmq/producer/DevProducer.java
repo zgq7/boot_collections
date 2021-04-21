@@ -1,7 +1,7 @@
 package com.boot.rabbitmq.producer;
 
 import com.alibaba.fastjson.JSON;
-import com.boot.rabbitmq.constance.MQModel;
+import com.boot.rabbitmq.constance.MqModel;
 import com.boot.rabbitmq.stream.RabbitStream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +26,7 @@ public class DevProducer {
         this.rabbitStream = rabbitStream;
     }
 
-    public void sendMsg(MQModel model) {
+    public void sendMsg(MqModel model) {
         logger.info("producer:{}", JSON.toJSONString(model));
 
         rabbitStream.devProducer()

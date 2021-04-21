@@ -9,13 +9,14 @@ import java.util.concurrent.TimeUnit;
  * @date 2020/8/25 15:21
  * @description
  **/
-public class MQConstants {
+public class MqConstants {
 
     public static final String DEV_EXCHANGE = "dev-exchange";
 
     public static final String PARTITION_EXCHANGE = "partition-exchange";
 
-    public static final String COMMIT_EXCHANGE = "commit-exchange";
+    public static final String COMMIT_EXCHANGE = "confirm-channel";
+    public static final String COMMIT_EXCHANGE_PRODUCER_CONFIRM = "confirm-channel_producer_queue";
 
     public static final ThreadPoolExecutor EXECUTOR =
             new ThreadPoolExecutor(5,

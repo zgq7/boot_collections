@@ -12,7 +12,7 @@ import java.io.Serializable;
  **/
 @Data
 @Accessors(chain = true)
-public class MQModel implements Serializable {
+public class MqModel implements Serializable {
 
     private long mid;
 

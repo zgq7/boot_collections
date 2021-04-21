@@ -1,6 +1,6 @@
 package com.boot.rabbitmq.listener;
 
-import com.boot.rabbitmq.constance.MQConstants;
+import com.boot.rabbitmq.constance.MqConstants;
 import com.boot.rabbitmq.stream.RabbitStream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +20,7 @@ public class PartitionListener {
 
     private static final Logger logger = LoggerFactory.getLogger(PartitionListener.class);
 
-    @StreamListener(MQConstants.PARTITION_EXCHANGE)
+    @StreamListener(MqConstants.PARTITION_EXCHANGE)
     public void receiveMsgAutoCommit(@Payload String payload) {
         logger.info("consumer:{}", payload);
     }
