@@ -3,6 +3,7 @@ package com.boot.es.entity;
 import lombok.Data;
 import lombok.experimental.Accessors;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Version;
 import org.springframework.data.elasticsearch.annotations.Document;
 
 /**
@@ -21,8 +22,8 @@ public class ElasticAopiEntity {
     @Id
     private Long id;
 
-/*    @Version
-    private Long version;*/
+    @Version
+    private Long version;
 
     private String aopiName;
 

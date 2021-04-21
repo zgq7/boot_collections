@@ -29,6 +29,7 @@
         <java.version>1.8</java.version>
         <springboot.sourceEncoding>UTF-8</springboot.sourceEncoding>
         <springboot.version>2.2.5.RELEASE</springboot.version>
+        <spring-cloud.version>Hoxton.SR10</spring-cloud.version>
     </properties>
 
     <dependencies>
@@ -98,12 +99,35 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
     <!--编译管理 jdk版本和字符集编码-->
     <build>
         <plugins>
+            <!-- maven 工程项目，打包启动报错：找不到主清单配置-->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${springboot.version}</version>
+                <executions>
+                    <execution>
+                        <id>repackage</id>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
