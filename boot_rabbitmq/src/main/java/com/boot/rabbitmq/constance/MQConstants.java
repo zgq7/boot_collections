@@ -15,8 +15,9 @@ public class MqConstants {
 
     public static final String PARTITION_EXCHANGE = "partition-exchange";
 
-    public static final String COMMIT_EXCHANGE = "confirm-channel";
-    public static final String COMMIT_EXCHANGE_PRODUCER_CONFIRM = "confirm-channel_producer_queue";
+    public static final String COMMIT_EXCHANGE = "commit-exchange";
+
+    public static final String COMMIT_EXCHANGE_PRODUCER_CONFIRM = "commit-exchange-producer-confirm";
 
     public static final ThreadPoolExecutor EXECUTOR =
             new ThreadPoolExecutor(5,
