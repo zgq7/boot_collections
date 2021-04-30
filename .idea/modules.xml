@@ -14,6 +14,7 @@
       <module fileurl="file://$PROJECT_DIR$/boot_rabbitmq/boot_rabbitmq.iml" filepath="$PROJECT_DIR$/boot_rabbitmq/boot_rabbitmq.iml" />
       <module fileurl="file://$PROJECT_DIR$/boot_redis/boot_redis.iml" filepath="$PROJECT_DIR$/boot_redis/boot_redis.iml" />
       <module fileurl="file://$PROJECT_DIR$/boot_redis_starter/boot_redis_starter.iml" filepath="$PROJECT_DIR$/boot_redis_starter/boot_redis_starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/boot_redission/boot_redission.iml" filepath="$PROJECT_DIR$/boot_redission/boot_redission.iml" />
       <module fileurl="file://$PROJECT_DIR$/boot_sharding_jdbc/boot_sharding_jdbc.iml" filepath="$PROJECT_DIR$/boot_sharding_jdbc/boot_sharding_jdbc.iml" />
       <module fileurl="file://$PROJECT_DIR$/netty-client/netty-client.iml" filepath="$PROJECT_DIR$/netty-client/netty-client.iml" />
     </modules>

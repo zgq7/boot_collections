@@ -9,6 +9,7 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/boot_redis/pom.xml" />
         <option value="$PROJECT_DIR$/boot_kafka/pom.xml" />
+        <option value="$PROJECT_DIR$/boot_redission/pom.xml" />
       </list>
     </option>
   </component>

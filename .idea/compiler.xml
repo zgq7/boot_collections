@@ -6,19 +6,20 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="boot_nacos" />
-        <module name="boot_kafka" />
-        <module name="boot_rabbitmq" />
-        <module name="boot_redis_starter" />
-        <module name="boot_auth2" />
-        <module name="boot_jdbc" />
         <module name="boot_sharding_jdbc" />
         <module name="boot_jpa" />
-        <module name="boot_elastic_search" />
-        <module name="boot_redis" />
+        <module name="boot_nacos" />
         <module name="boot_mongodb" />
-        <module name="netty-client" />
+        <module name="boot_kafka" />
+        <module name="boot_auth2" />
         <module name="boot_netty" />
+        <module name="boot_redis" />
+        <module name="boot_elastic_search" />
+        <module name="boot_rabbitmq" />
+        <module name="boot_jdbc" />
+        <module name="boot_redission" />
+        <module name="netty-client" />
+        <module name="boot_redis_starter" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -34,6 +35,7 @@
       <module name="boot_rabbitmq" target="1.8" />
       <module name="boot_redis" target="1.8" />
       <module name="boot_redis_starter" target="1.8" />
+      <module name="boot_redission" target="1.8" />
       <module name="boot_sharding_jdbc" target="1.8" />
       <module name="netty-client" target="1.8" />
     </bytecodeTargetLevel>
@@ -50,7 +52,8 @@
       <module name="boot_netty" options="" />
       <module name="boot_rabbitmq" options="" />
       <module name="boot_redis" options="" />
-      <module name="boot_sharding_jdbc" options="-parameters" />
+      <module name="boot_redission" options="" />
+      <module name="boot_sharding_jdbc" options="" />
       <module name="netty-client" options="" />
     </option>
   </component>
