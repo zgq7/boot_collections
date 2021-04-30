@@ -1,4 +1,4 @@
-package com.boot.netty.model;
+package com.boot.netty.socketio.model;
 
 /**
  * @author Leethea_廖南洲

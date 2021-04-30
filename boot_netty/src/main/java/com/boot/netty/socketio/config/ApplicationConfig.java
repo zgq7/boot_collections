@@ -1,4 +1,4 @@
-package com.boot.netty.config;
+package com.boot.netty.socketio.config;
 
 import org.springframework.boot.web.servlet.MultipartConfigFactory;
 import org.springframework.context.annotation.Bean;

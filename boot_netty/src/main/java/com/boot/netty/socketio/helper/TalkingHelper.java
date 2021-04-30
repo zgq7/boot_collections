@@ -1,6 +1,6 @@
-package com.boot.netty.helper;
+package com.boot.netty.socketio.helper;
 
-import com.boot.netty.model.GroupClient;
+import com.boot.netty.socketio.model.GroupClient;
 import com.corundumstudio.socketio.SocketIOClient;
 
 import javax.annotation.Resource;

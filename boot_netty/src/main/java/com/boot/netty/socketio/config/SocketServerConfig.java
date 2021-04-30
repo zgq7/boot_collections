@@ -1,11 +1,11 @@
-package com.boot.netty.config;
+package com.boot.netty.socketio.config;
 
-import com.boot.netty.helper.SocketServerHelper;
-import com.boot.netty.helper.TalkingHelper;
-import com.boot.netty.model.ClientAssignment;
-import com.boot.netty.model.GroupClient;
-import com.boot.netty.model.SingleClient;
-import com.boot.netty.properties.SocketIoProperties;
+import com.boot.netty.socketio.helper.SocketServerHelper;
+import com.boot.netty.socketio.helper.TalkingHelper;
+import com.boot.netty.socketio.model.ClientAssignment;
+import com.boot.netty.socketio.model.GroupClient;
+import com.boot.netty.socketio.model.SingleClient;
+import com.boot.netty.socketio.properties.SocketIoProperties;
 import com.corundumstudio.socketio.SocketConfig;
 import com.corundumstudio.socketio.SocketIOServer;
 import com.corundumstudio.socketio.annotation.SpringAnnotationScanner;

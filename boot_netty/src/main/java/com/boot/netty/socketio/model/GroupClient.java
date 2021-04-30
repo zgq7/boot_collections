@@ -1,14 +1,11 @@
-package com.boot.netty.model;
+package com.boot.netty.socketio.model;
 
 import com.alibaba.fastjson.JSONObject;
-import com.boot.netty.config.SocketServerConfig;
 import com.corundumstudio.socketio.SocketIOClient;
-import com.corundumstudio.socketio.SocketIOServer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 
-import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;

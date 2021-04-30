@@ -1,4 +1,4 @@
-package com.boot.netty.common;
+package com.boot.netty.socketio.common;
 
 /**
  * @author Leethea_廖南洲

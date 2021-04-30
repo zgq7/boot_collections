@@ -1,6 +1,6 @@
-package com.boot.netty.config;
+package com.boot.netty.socketio.config;
 
-import com.boot.netty.helper.SocketServerHelper;
+import com.boot.netty.socketio.helper.SocketServerHelper;
 import com.corundumstudio.socketio.ClientOperations;
 import com.corundumstudio.socketio.SocketIOServer;
 import org.slf4j.Logger;

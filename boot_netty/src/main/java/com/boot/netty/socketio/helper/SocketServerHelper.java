@@ -1,12 +1,12 @@
-package com.boot.netty.helper;
+package com.boot.netty.socketio.helper;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.boot.netty.common.ConstantKeys;
-import com.boot.netty.config.SocketServerConfig;
-import com.boot.netty.model.ClientAssignment;
-import com.boot.netty.model.GroupClient;
-import com.boot.netty.model.SingleClient;
+import com.boot.netty.socketio.common.ConstantKeys;
+import com.boot.netty.socketio.config.SocketServerConfig;
+import com.boot.netty.socketio.model.ClientAssignment;
+import com.boot.netty.socketio.model.GroupClient;
+import com.boot.netty.socketio.model.SingleClient;
 import com.corundumstudio.socketio.SocketIOServer;
 import com.corundumstudio.socketio.listener.DataListener;
 import org.apache.commons.lang3.StringUtils;

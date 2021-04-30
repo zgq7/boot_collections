@@ -22,6 +22,7 @@
         <module>boot_jdbc</module>
         <module>boot_rabbitmq</module>
         <module>boot_redis_starter</module>
+        <module>boot_redission</module>
     </modules>
 
 

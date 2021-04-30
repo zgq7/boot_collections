@@ -1,13 +1,12 @@
-package com.boot.netty.controller;
+package com.boot.netty.socketio.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.boot.netty.common.Constants;
-import com.boot.netty.config.SocketServerConfig;
-import com.boot.netty.helper.CacheHelper;
-import com.boot.netty.model.GroupClient;
-import com.boot.netty.model.GroupModel;
-import com.boot.netty.model.SingleClient;
+import com.boot.netty.socketio.common.Constants;
+import com.boot.netty.socketio.config.SocketServerConfig;
+import com.boot.netty.socketio.helper.CacheHelper;
+import com.boot.netty.socketio.model.GroupClient;
+import com.boot.netty.socketio.model.GroupModel;
+import com.boot.netty.socketio.model.SingleClient;
 import com.corundumstudio.socketio.ClientOperations;
 import com.corundumstudio.socketio.SocketIOServer;
 import com.google.common.collect.ImmutableMap;

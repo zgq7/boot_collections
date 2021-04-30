@@ -1,9 +1,9 @@
-package com.boot.netty.model;
+package com.boot.netty.socketio.model;
 
 import com.alibaba.fastjson.JSON;
-import com.boot.netty.common.ConstantKeys;
-import com.boot.netty.helper.CacheHelper;
-import com.boot.netty.helper.TalkingHelper;
+import com.boot.netty.socketio.common.ConstantKeys;
+import com.boot.netty.socketio.helper.CacheHelper;
+import com.boot.netty.socketio.helper.TalkingHelper;
 import com.corundumstudio.socketio.AckRequest;
 import com.corundumstudio.socketio.SocketIOClient;
 import org.apache.commons.lang3.StringUtils;

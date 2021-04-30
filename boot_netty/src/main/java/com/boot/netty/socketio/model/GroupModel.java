@@ -1,4 +1,4 @@
-package com.boot.netty.model;
+package com.boot.netty.socketio.model;
 
 import com.alibaba.fastjson.annotation.JSONField;
 

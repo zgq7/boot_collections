@@ -1,4 +1,4 @@
-package com.boot.netty.properties;
+package com.boot.netty.socketio.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

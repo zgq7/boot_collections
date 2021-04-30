@@ -2,7 +2,7 @@ package com.boot.netty;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
-import com.boot.netty.model.GroupModel;
+import com.boot.netty.socketio.model.GroupModel;
 import org.junit.Test;
 
 import java.util.Date;
