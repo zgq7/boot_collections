@@ -36,7 +36,7 @@ class RedissonApplicationTests {
                 try {
                     redissonLock.lock(10, TimeUnit.SECONDS);
                     //redissonLock.lock();
-                    TimeUnit.SECONDS.sleep(10);
+                    TimeUnit.SECONDS.sleep(2);
                 } catch (Exception ignore) {
 
                 } finally {
