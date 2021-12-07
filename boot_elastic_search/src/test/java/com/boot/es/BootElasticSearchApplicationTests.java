@@ -3,10 +3,6 @@ package com.boot.es;
 import com.alibaba.fastjson.JSON;
 import com.boot.es.dao.ElasticAopiEntityDao;
 import com.boot.es.entity.ElasticAopiEntity;
-import org.elasticsearch.index.query.BoolQueryBuilder;
-import org.elasticsearch.index.query.QueryBuilder;
-import org.elasticsearch.index.query.QueryBuilders;
-import org.elasticsearch.index.query.QueryStringQueryBuilder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -14,16 +10,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.jaxb.SpringDataJaxb;
-import org.springframework.data.elasticsearch.core.query.NativeSearchQuery;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
 import org.springframework.data.elasticsearch.core.query.SearchQuery;
-import org.springframework.data.repository.support.PageableExecutionUtils;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.annotation.Resource;
+import java.util.List;
 import java.util.stream.Collectors;
 
 /**
@@ -45,7 +37,7 @@ public class BootElasticSearchApplicationTests {
     public void elasticInsertTest() {
         for (int i = 0; i < 1000; i++) {
             ElasticAopiEntity elasticAopiEntity = new ElasticAopiEntity()
-                    .setId((long) i).setAopiName(i != 16? "elasticTest" + i : "搜索引擎").setCoder("zgq" + i);
+                    .setId((long) i).setAopiName(i != 16 ? "elasticTest" + i : "搜索引擎").setCoder("zgq" + i);
 
             ElasticAopiEntity result = elasticAopiEntityDao.save(elasticAopiEntity);
 
@@ -93,6 +85,12 @@ public class BootElasticSearchApplicationTests {
         Page<ElasticAopiEntity> page = elasticAopiEntityDao.search(searchQuery);
 
         logger.info("{}", page.get().collect(Collectors.toList()));
+    }
+
+    @Test
+    public void selectByName() {
+        List<ElasticAopiEntity> elasticAopiEntities = elasticAopiEntityDao.findByAopiNameAndCoder("elasticTest2", "zgq2");
+        elasticAopiEntities.forEach(System.out::println);
     }
 
 }
