@@ -2,24 +2,25 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="boot_sharding_jdbc" />
-        <module name="boot_jpa" />
-        <module name="boot_nacos" />
         <module name="boot_mongodb" />
-        <module name="boot_kafka" />
-        <module name="boot_auth2" />
-        <module name="boot_netty" />
-        <module name="boot_redis" />
-        <module name="boot_elastic_search" />
-        <module name="boot_rabbitmq" />
-        <module name="boot_jdbc" />
-        <module name="boot_redission" />
         <module name="netty-client" />
         <module name="boot_redis_starter" />
+        <module name="boot_netty" />
+        <module name="boot_jpa" />
+        <module name="boot_elastic_search" />
+        <module name="boot_jdbc" />
+        <module name="boot_nacos" />
+        <module name="boot_rabbitmq" />
+        <module name="boot_kafka" />
+        <module name="boot_auth2" />
+        <module name="boot_redission" />
+        <module name="boot_sharding_jdbc" />
+        <module name="boot_redis" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
