@@ -12,6 +12,12 @@
         <option value="$PROJECT_DIR$/boot_redission/pom.xml" />
       </list>
     </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/boot_auth2/pom.xml" />
+        <option value="$PROJECT_DIR$/boot_nacos/pom.xml" />
+      </set>
+    </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
 </project>

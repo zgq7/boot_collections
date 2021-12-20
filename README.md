@@ -5,6 +5,9 @@ spring boot 一对一整合当前流行框架
 ## 1：SpringBoot 整合 JPA
 
   已完成学习，不做博客介绍。
+    
+    如何手写一个jdbc 连接池？
+    >>>>看项目boot_jdbc。
 
 ## 2：RabbitMQ 的使用
 
@@ -39,3 +42,31 @@ spring boot 一对一整合当前流行框架
 ## 8：SpringBoot 整合 ElasticSearch
 
 博客地址：https://www.cnblogs.com/zgq7/p/13885990.html
+
+
+## 9：SpringBoot 整合 Redisson
+
+博客地址：https://www.cnblogs.com/zgq7/p/14746128.html
+    
+    1：分布式可重入锁思想
+    
+    2：监听redis key 过期
+    
+## 10：SpringBoot 整合 Sharding-jdbc
+
+不做博客介绍。
+    
+    1：io.shardingjdbc 依赖（我的练手项目使用依赖）
+    2：org.apache.shardingsphere 依赖
+    3：shardingsphere-jdbc-core-spring-boot-starter 依赖
+    
+    以上三个版本都可以使用，第三种由SpringBoot支持整合进项目比较方便。
+    
+    请勿使用该依赖：
+    <dependency>
+        <groupId>org.apache.shardingsphere</groupId>
+        <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
+        <version>4.1.1</version>
+    </dependency>
+    
+    改版本停更，且存在bug，不建议使用。

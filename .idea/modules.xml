@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/boot_auth2/boot_auth2.iml" filepath="$PROJECT_DIR$/boot_auth2/boot_auth2.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/boot_collections.iml" filepath="$PROJECT_DIR$/.idea/boot_collections.iml" />
       <module fileurl="file://$PROJECT_DIR$/boot_elastic_search/boot_elastic_search.iml" filepath="$PROJECT_DIR$/boot_elastic_search/boot_elastic_search.iml" />
       <module fileurl="file://$PROJECT_DIR$/boot_jdbc/boot_jdbc.iml" filepath="$PROJECT_DIR$/boot_jdbc/boot_jdbc.iml" />
       <module fileurl="file://$PROJECT_DIR$/boot_jpa/boot_jpa.iml" filepath="$PROJECT_DIR$/boot_jpa/boot_jpa.iml" />
       <module fileurl="file://$PROJECT_DIR$/boot_kafka/boot_kafka.iml" filepath="$PROJECT_DIR$/boot_kafka/boot_kafka.iml" />
       <module fileurl="file://$PROJECT_DIR$/boot_mongodb/boot_mongodb.iml" filepath="$PROJECT_DIR$/boot_mongodb/boot_mongodb.iml" />
-      <module fileurl="file://$PROJECT_DIR$/boot_nacos/boot_nacos.iml" filepath="$PROJECT_DIR$/boot_nacos/boot_nacos.iml" />
       <module fileurl="file://$PROJECT_DIR$/boot_netty/boot_netty.iml" filepath="$PROJECT_DIR$/boot_netty/boot_netty.iml" />
       <module fileurl="file://$PROJECT_DIR$/boot_rabbitmq/boot_rabbitmq.iml" filepath="$PROJECT_DIR$/boot_rabbitmq/boot_rabbitmq.iml" />
       <module fileurl="file://$PROJECT_DIR$/boot_redis/boot_redis.iml" filepath="$PROJECT_DIR$/boot_redis/boot_redis.iml" />
