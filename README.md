@@ -18,9 +18,7 @@ spring boot 一对一整合当前流行框架
 
 博客地址：https://www.cnblogs.com/zgq7/p/13903644.html
 
-## 5：SpringBoot 整合 Kafka
-
-## 6：SpringBoot 整合 Redis (Lettuce)
+## 5：SpringBoot 整合 Redis (Lettuce)
   
   1：自定义SpringBoot Starter
   
@@ -28,18 +26,15 @@ spring boot 一对一整合当前流行框架
     
     B：使用Spring的 @Import 注解加载第三方包的 Bean配置
     
-## 7：Netty 的 学习
+## 6：websocket/socketIO 的 学习
   
   1：基于Netty的 socket.io 的使用
+  2：原生websocket 的使用
 
-## 8：SpringBoot 整合 ShardingJdbc
-
-## 9：SpringBoot 整合 MongoDB
+## 7：SpringBoot 整合 MongoDB
 
 博客地址：https://www.cnblogs.com/zgq7/p/12336016.html
 
-## 10：SpringBoot 整合 Auth2
-
-## 11：SpringBoot 整合 ElasticSearch
+## 8：SpringBoot 整合 ElasticSearch
 
 博客地址：https://www.cnblogs.com/zgq7/p/13885990.html
