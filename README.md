@@ -28,8 +28,9 @@ spring boot 一对一整合当前流行框架
     
 ## 6：websocket/socketIO 的 学习
   
-  1：基于Netty的 socket.io 的使用
-  2：原生websocket 的使用
+    1：基于Netty的 socket.io 的使用
+  
+    2：原生websocket 的使用
 
 ## 7：SpringBoot 整合 MongoDB
 
