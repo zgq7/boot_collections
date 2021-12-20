@@ -1,6 +1,8 @@
 # boot_collections
 
-spring boot 一对一整合当前流行框架
+- 练手项目，博客梳理
+- SpringBoot 集成当前流行框架
+- welcome to fork and start
 
 ## 1：SpringBoot 整合 JPA
 
