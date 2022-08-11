@@ -72,3 +72,4 @@
     </dependency>
     
     改版本停更，且存在bug，不建议使用。
+    bug详情：因为基于jdk7开发的，因此在使用mapper时不能使用localdatetime 类型的参数。
