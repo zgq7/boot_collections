@@ -16,6 +16,7 @@ public class SettingHelper {
         connectionFactory.setUsername("admin");
         connectionFactory.setPassword("123456");
         connectionFactory.setPort(5672);
+        connectionFactory.setChannelRpcTimeout(3000);
         return connectionFactory;
     }
 
