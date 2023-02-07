@@ -1,9 +1,9 @@
 package com.boot.sharding;
 
-import com.boot.jpa.BootJpaApplication;
-import com.boot.jpa.mapper.AopiMapper;
-import com.boot.jpa.mapper.StuMapper;
-import com.boot.jpa.model.Stu;
+import com.boot.kafka.sender.BootJpaApplication;
+import com.boot.kafka.sender.mapper.AopiMapper;
+import com.boot.kafka.sender.mapper.StuMapper;
+import com.boot.kafka.sender.model.Stu;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

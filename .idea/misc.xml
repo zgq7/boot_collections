@@ -10,14 +10,20 @@
         <option value="$PROJECT_DIR$/boot_redis/pom.xml" />
         <option value="$PROJECT_DIR$/boot_kafka/pom.xml" />
         <option value="$PROJECT_DIR$/boot_redission/pom.xml" />
+        <option value="$PROJECT_DIR$/boot_kafka/kafka_listener/pom.xml" />
+        <option value="$PROJECT_DIR$/boot-netty/pom.xml" />
+        <option value="$PROJECT_DIR$/boot-netty/netty-client/pom.xml" />
+        <option value="$PROJECT_DIR$/boot-kafka/kafka-sender/pom.xml" />
+        <option value="$PROJECT_DIR$/boot-kafka/kafka-listener/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/boot_auth2/pom.xml" />
         <option value="$PROJECT_DIR$/boot_nacos/pom.xml" />
+        <option value="$PROJECT_DIR$/boot_netty/pom.xml" />
       </set>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
 </project>

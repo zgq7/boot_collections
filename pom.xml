@@ -11,18 +11,16 @@
     <name>boot_collections</name>
 
     <modules>
-        <module>boot_auth2</module>
         <module>boot_elastic_search</module>
-        <module>netty-client</module>
-        <module>boot_netty</module>
         <module>boot_mongodb</module>
-        <module>boot_nacos</module>
         <module>boot_jpa</module>
         <module>boot_sharding_jdbc</module>
         <module>boot_jdbc</module>
         <module>boot_rabbitmq</module>
         <module>boot_redis_starter</module>
         <module>boot_redission</module>
+        <module>boot-kafka</module>
+        <module>boot-netty</module>
     </modules>
 
 

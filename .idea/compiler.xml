@@ -8,26 +8,30 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="boot_mongodb" />
+        <module name="boot-netty" />
         <module name="netty-client" />
         <module name="boot_redis_starter" />
-        <module name="boot_netty" />
         <module name="boot_jpa" />
         <module name="boot_elastic_search" />
         <module name="boot_jdbc" />
+        <module name="netty-server" />
+        <module name="boot-kafka" />
         <module name="boot_rabbitmq" />
-        <module name="boot_kafka" />
+        <module name="kafka-sender" />
+        <module name="kafka-listener" />
         <module name="boot_redission" />
         <module name="boot_sharding_jdbc" />
         <module name="boot_redis" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="boot-kafka" target="1.8" />
+      <module name="boot-netty" target="1.8" />
       <module name="boot_auth2" target="1.8" />
       <module name="boot_collections" target="1.8" />
       <module name="boot_elastic_search" target="1.8" />
       <module name="boot_jdbc" target="1.8" />
       <module name="boot_jpa" target="1.8" />
-      <module name="boot_kafka" target="1.8" />
       <module name="boot_mongodb" target="1.8" />
       <module name="boot_nacos" target="1.8" />
       <module name="boot_netty" target="1.8" />
@@ -36,16 +40,20 @@
       <module name="boot_redis_starter" target="1.8" />
       <module name="boot_redission" target="1.8" />
       <module name="boot_sharding_jdbc" target="1.8" />
+      <module name="kafka-listener" target="1.8" />
+      <module name="kafka-sender" target="1.8" />
       <module name="netty-client" target="1.8" />
+      <module name="netty-client (1)" target="1.5" />
+      <module name="netty-server" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="boot-kafka" options="" />
       <module name="boot_auth2" options="" />
       <module name="boot_elastic_search" options="" />
       <module name="boot_jdbc" options="-parameters" />
       <module name="boot_jpa" options="-parameters" />
-      <module name="boot_kafka" options="-parameters" />
       <module name="boot_mongodb" options="" />
       <module name="boot_nacos" options="" />
       <module name="boot_netty" options="" />
@@ -53,6 +61,7 @@
       <module name="boot_redis" options="" />
       <module name="boot_redission" options="" />
       <module name="boot_sharding_jdbc" options="" />
+      <module name="kafka-listener" options="" />
       <module name="netty-client" options="" />
     </option>
   </component>

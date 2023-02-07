@@ -2,19 +2,22 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/boot-kafka/boot-kafka.iml" filepath="$PROJECT_DIR$/boot-kafka/boot-kafka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/boot-netty/boot-netty.iml" filepath="$PROJECT_DIR$/boot-netty/boot-netty.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/boot_collections.iml" filepath="$PROJECT_DIR$/.idea/boot_collections.iml" />
       <module fileurl="file://$PROJECT_DIR$/boot_elastic_search/boot_elastic_search.iml" filepath="$PROJECT_DIR$/boot_elastic_search/boot_elastic_search.iml" />
       <module fileurl="file://$PROJECT_DIR$/boot_jdbc/boot_jdbc.iml" filepath="$PROJECT_DIR$/boot_jdbc/boot_jdbc.iml" />
       <module fileurl="file://$PROJECT_DIR$/boot_jpa/boot_jpa.iml" filepath="$PROJECT_DIR$/boot_jpa/boot_jpa.iml" />
-      <module fileurl="file://$PROJECT_DIR$/boot_kafka/boot_kafka.iml" filepath="$PROJECT_DIR$/boot_kafka/boot_kafka.iml" />
       <module fileurl="file://$PROJECT_DIR$/boot_mongodb/boot_mongodb.iml" filepath="$PROJECT_DIR$/boot_mongodb/boot_mongodb.iml" />
-      <module fileurl="file://$PROJECT_DIR$/boot_netty/boot_netty.iml" filepath="$PROJECT_DIR$/boot_netty/boot_netty.iml" />
       <module fileurl="file://$PROJECT_DIR$/boot_rabbitmq/boot_rabbitmq.iml" filepath="$PROJECT_DIR$/boot_rabbitmq/boot_rabbitmq.iml" />
       <module fileurl="file://$PROJECT_DIR$/boot_redis/boot_redis.iml" filepath="$PROJECT_DIR$/boot_redis/boot_redis.iml" />
       <module fileurl="file://$PROJECT_DIR$/boot_redis_starter/boot_redis_starter.iml" filepath="$PROJECT_DIR$/boot_redis_starter/boot_redis_starter.iml" />
       <module fileurl="file://$PROJECT_DIR$/boot_redission/boot_redission.iml" filepath="$PROJECT_DIR$/boot_redission/boot_redission.iml" />
       <module fileurl="file://$PROJECT_DIR$/boot_sharding_jdbc/boot_sharding_jdbc.iml" filepath="$PROJECT_DIR$/boot_sharding_jdbc/boot_sharding_jdbc.iml" />
-      <module fileurl="file://$PROJECT_DIR$/netty-client/netty-client.iml" filepath="$PROJECT_DIR$/netty-client/netty-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/boot-kafka/kafka-listener/kafka-listener.iml" filepath="$PROJECT_DIR$/boot-kafka/kafka-listener/kafka-listener.iml" />
+      <module fileurl="file://$PROJECT_DIR$/boot-kafka/kafka-sender/kafka-sender.iml" filepath="$PROJECT_DIR$/boot-kafka/kafka-sender/kafka-sender.iml" />
+      <module fileurl="file://$PROJECT_DIR$/boot-netty/netty-client/netty-client.iml" filepath="$PROJECT_DIR$/boot-netty/netty-client/netty-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/boot-netty/netty-server/netty-server.iml" filepath="$PROJECT_DIR$/boot-netty/netty-server/netty-server.iml" />
     </modules>
   </component>
 </project>
